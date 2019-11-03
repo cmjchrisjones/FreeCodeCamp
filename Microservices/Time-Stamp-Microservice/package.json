@@ -1,0 +1,18 @@
+{
+  "name": "free-code-camp-microservices_time-stamp",
+  "version": "1.0.0",
+  "description": "A microservice to convert timestamps",
+  "repository": "https://github.com/cmjchrisjones/fcc-timestamps.git",
+  "license": "MIT",
+  "author": "Chris Jones <chris@c-j.tech>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}

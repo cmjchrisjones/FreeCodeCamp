@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  timestamp-microservice:
+    container_name: "timestamp-microservice"
+    # restart: always
+    build: 
+      context: .
+    ports: 
+      - 9294:8080
+    volumes: 
+      - ./:/usr/app/src
+      - /usr/app/node_modules
+    command: ["npm", "run", "start"]
