@@ -2,13 +2,14 @@
 
 const express = require('express');
 
+var path = require('path');
+
 const PORT = 8080;
 const HOST = '0.0.0.0';
 
 const app = express();
 app.get('/', (req, res) => {
-    res.send('Hey up\n');
-    console.log("Received a request");
+    res.sendFile(path.join(__dirname + "/src/index.html"))
 });
 
 app.get('/api/timestamp/:date_string?', (req, res) => {
@@ -21,13 +22,14 @@ app.get('/api/timestamp/:date_string?', (req, res) => {
     if (utcDate.getMonth() === null) 
     {
         res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify({ unix: receivedDate, utc: utcDate }));
+        res.send({ unix: receivedDate, utc: utcDate });
     }
     else
     {
         res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify({ unix: dateAsUnix, utc: utcDate2 }));
+        res.send({ unix: dateAsUnix, utc: utcDate2 });
     }
 });
 
-app.listen(PORT, HOST); console.log(`Running on http://${HOST}:${PORT}`);
+module.exports  = app.listen(PORT, HOST); console.log(`Running on http://${HOST}:${PORT}`);
+

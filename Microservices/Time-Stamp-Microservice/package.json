@@ -7,12 +7,23 @@
   "author": "Chris Jones <chris@c-j.tech>",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "express": "^4.16.1"
   },
   "devDependencies": {
-    "nodemon": "^1.19.4"
+    "nodemon": "^1.19.4",
+    "jest": "25.1.0",
+    "supertest": "4.0.2"
+  },
+
+  "jest": {
+    "testEnvironment" : "node",
+    "coveragePathIgnorePatterns" : [
+      "/node_modules/"
+    ]
   }
 }
